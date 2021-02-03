@@ -1,2 +1,21 @@
-<h1>Books#books</h1>
-<p>Find me in app/views/books/books.html.erb</p>
+<h1>Books</h1>
+<% @books.each do |book| %>
+  <h4><%= book.title %></h4>
+  <h4><%= book.body %></h4>
+  <h4>show</h4>
+  <h4>edit</h4>
+  <h4>destroy</h4>
+<% end %>
+
+<h1>New Book</h1>
+<%= form_with model:@book, local:true do |f| %>
+
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  
+  <h4>body</h4>
+  <%= f.text_area :body %>
+  
+  <%= f.submit 'Creat Book' %>
+
+<% end %>
